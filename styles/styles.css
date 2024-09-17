@@ -1,0 +1,359 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed";
+  background: radial-gradient(
+    circle at 50% 0,
+    hsl(214, 47%, 23%) 0%,
+    hsl(237, 49%, 15%) 100%
+  );
+  min-height: 100vh;
+}
+.hidden {
+  display: none;
+}
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.lose h2 {
+  text-transform: uppercase;
+  font-size: 32px;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 50%;
+  padding: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.452);
+  border-radius: 15px;
+}
+.scores {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+.scores span {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: hsl(229, 64%, 46%);
+}
+.scores p {
+  margin: 0;
+  padding: 10px;
+  font-size: 32px;
+}
+
+/* game */
+
+main {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-content {
+  padding: 30px;
+  background: url("../images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 300px;
+  min-height: 250px;
+  position: relative;
+}
+.game-btn {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+.white-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  box-shadow: 0px 5px 0px 0px rgba(194, 194, 194, 0.75) inset;
+}
+
+.paper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    hsl(230, 89%, 62%) 0%,
+    hsl(230, 89%, 65%) 100%
+  );
+  box-shadow: 0px 5px 0px 0px hsl(230, 54%, 47%);
+}
+
+.scissors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0px 5px 0px 0px hsl(39, 66%, 41%);
+}
+.rock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0px 5px 0px 0px hsl(349, 57%, 41%);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  display: none;
+}
+.modal-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 15px 40px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.rules {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+}
+.rules span {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: hsl(229, 25%, 31%);
+}
+
+.rule-img {
+  background: url("../images/image-rules.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+}
+#close-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.game-chosed {
+  position: relative;
+  min-width: 100%;
+}
+.text-pick-placement {
+  padding: 10px 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+}
+.player {
+  min-width: 140px;
+  min-height: 250px;
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.grey-circle {
+  position: relative;
+  min-width: 100px;
+  height: 100px;
+  background-color: hsla(227, 37%, 15%, 0.573);
+  border-radius: 50%;
+}
+.text-content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 42px;
+  display: flex;
+  justify-content: center;
+}
+.text-content p {
+  text-align: center;
+  font-size: 42px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+}
+.play-again {
+  text-transform: uppercase;
+  font-size: 24px;
+  background: white;
+  padding: 10px;
+  min-width: 100%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.play-again:hover {
+  background: rgba(217, 217, 217, 0.651);
+}
+.p-relative {
+  position: relative;
+  top: -40px;
+}
+/* footer */
+
+.btn-rule {
+  max-width: 97%;
+  display: flex;
+  justify-content: flex-end;
+}
+#rule-btn {
+  cursor: pointer;
+  background: none;
+  border: 3px solid hsl(217, 16%, 45%);
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: white;
+}
+#rule-btn:hover {
+  background: rgba(182, 182, 182, 0.486);
+}
+/*  */
+.attribution {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*  */
+@media screen and (max-width: 768px) {
+  .title-wrapper {
+    padding: 30px;
+    display: block;
+  }
+  .container {
+    padding: 10px;
+  }
+  .title {
+    max-width: 100%;
+  }
+  .title img {
+    max-width: 60%;
+  }
+  .scores {
+    padding: 10px;
+  }
+  .scores span {
+    font-size: 12px;
+  }
+  .scores p {
+    font-size: 22px;
+  }
+  /* main */
+  main {
+    padding: 10px;
+  }
+  .game-content {
+    min-width: 200px;
+
+    background-size: contain;
+    min-width: 150px;
+  }
+  .white-bg img {
+    width: 50%;
+  }
+  .paper {
+    top: 20px;
+    left: -30px;
+  }
+  .rock {
+    top: 20px;
+    right: -30px;
+  }
+  .scissors {
+    bottom: 20px;
+  }
+  .paper,
+  .scissors,
+  .rock {
+    width: 100px;
+    height: 100px;
+  }
+  .draw p {
+    text-transform: uppercase;
+    color: white;
+  }
+  .p-relative {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .text-content {
+    bottom: -100px;
+  }
+  .btn-rule {
+    max-width: 100%;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

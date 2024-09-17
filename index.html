@@ -28,5 +28,68 @@
     <link rel="stylesheet" href="css/reset.css" />
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
   </head>
-  <body></body>
+  <body>
+    <div class="title-wrapper">
+      <div class="container">
+        <div class="title">
+          <img src="./images/logo.svg" alt="game" />
+        </div>
+        <div class="scores">
+          <span>score</span>
+          <p id="score">0</p>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="overlay" id="overlay"></div>
+      <div class="game-content"></div>
+      <div class="game-chosed hidden">
+        <div class="text-pick-placement">
+          <div class="player">
+            <p>you picked</p>
+            <div class="grey-circle player-chose"></div>
+          </div>
+          <div class="player">
+            <p>the house picked</p>
+            <div class="grey-circle computer-chose"></div>
+          </div>
+        </div>
+        <div class="text-content">
+          <div class="succsess hidden">
+            <p>you win</p>
+            <button class="play-again">play again</button>
+          </div>
+          <div class="draw hidden">
+            <p>draw</p>
+            <button class="play-again">play again</button>
+          </div>
+          <div class="failure hidden">
+            <p>you lost</p>
+            <button class="play-again">play again</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-page hidden">
+        <div class="rules">
+          <span>rules</span>
+          <button id="close-btn">
+            <img src="./images/icon-close.svg" alt="close" />
+          </button>
+        </div>
+        <div class="rule-img"></div>
+      </div>
+    </main>
+    <footer>
+      <div class="btn-rule">
+        <button id="rule-btn">rules</button>
+      </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </footer>
+    <script src="./js/modal.js"></script>
+  </body>
 </html>
